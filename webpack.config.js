@@ -15,11 +15,11 @@ module.exports = {
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
-      port: 3000,
-      open: true,
-      hot: true,
-      compress: true,
     },
+    port: 3000,
+    open: true,
+    compress: true,
+    hot: true,
   },
   module: {
     rules: [
