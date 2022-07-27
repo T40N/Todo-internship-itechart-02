@@ -1,7 +1,8 @@
 import addEventListener from "../../utilities/addEventListener";
 import render from "../../utilities/render";
 import Input from "../Input/Input";
-import { todoId, todosStore } from "../../store/todoStore/todosStore";
+import { addTodoId, todosStore } from "../../store/todoStore/todosStore";
+import Button from "../Button/Button";
 
 const Form = (container) => {
   let titleInputValue = "";
@@ -21,7 +22,7 @@ const Form = (container) => {
     todosStore.dispatch({
       type: "ADD_TODO",
       payload: {
-        id: todoId++,
+        id: addTodoId(),
         title: titleInputValue,
         description: descriptionInputValue,
         done: false,
@@ -35,6 +36,7 @@ const Form = (container) => {
   const element = render("form", container, "form");
   const titleInput = Input(element, onTitleChangeHandler);
   const descriptionInput = Input(element, onDescriptionChangeHandler);
+  const submitButton = Button(element, onSubmitHandler);
 
   addEventListener(element, "submit", onSubmitHandler);
 
@@ -42,6 +44,7 @@ const Form = (container) => {
     element,
     titleInput,
     descriptionInput,
+    submitButton,
   };
 };
 

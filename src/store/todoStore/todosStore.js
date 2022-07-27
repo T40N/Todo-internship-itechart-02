@@ -3,6 +3,10 @@ import todosReducer from "./todosReducers/todosReducer";
 
 // For adding todoId :/
 // To reconsider - shouldnt making access points for state id
-export let todoId = 0;
+let todoId = 0;
+export const addTodoId = () => {
+  todoId++;
+  return todoId;
+};
 
 export const todosStore = createStore(todosReducer);

@@ -1,8 +1,8 @@
-import BaseComponent from "../BaseComponent/BaseComponent";
-const Button = (container) => {
-  const base = BaseComponent("button", container);
-  const element = base.create();
-  base.mount();
+import render from "../../utilities/render";
+import addEventListener from "../../utilities/addEventListener";
+const Button = (container, eventCallback) => {
+  const element = render("button", container, "button");
+  addEventListener(element, "click", eventCallback);
   return element;
 };
 
