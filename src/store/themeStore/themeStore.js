@@ -1,5 +1,6 @@
-import createStore from "../globalStateCreateFunctions/createStore";
+import createStore from "../globalStateFunctions/createStore";
+import themeReducer from "./themeReducers/themeReducer";
 
-const themeStore = createStore("reducer");
+const themeStore = createStore(themeReducer); // placeholder
 
 export default themeStore;

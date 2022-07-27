@@ -4,6 +4,10 @@ const createStore = (reducer) => {
   let state;
   const listeners = [];
 
+  const getState = () => {
+    return state;
+  };
+
   const dispatch = (action) => {
     state = reducer(state, action);
     listeners.forEach((listener) => listener());
@@ -17,7 +21,7 @@ const createStore = (reducer) => {
     listeners.filter((arrayListener) => arrayListener !== listener);
   };
 
-  return { dispatch, subscribe, unsubscribe };
+  return { getState, dispatch, subscribe, unsubscribe };
 };
 
 export default createStore;
