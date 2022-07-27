@@ -1,7 +1,7 @@
 // createStore function
 
 const createStore = (reducer) => {
-  let state;
+  let state = [];
   const listeners = [];
 
   const getState = () => {

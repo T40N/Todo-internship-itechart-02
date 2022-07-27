@@ -40,13 +40,53 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/components/TodoItem/TodoItem.js":
+/*!*********************************************!*\
+  !*** ./src/components/TodoItem/TodoItem.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utilities_render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/render */ \"./src/utilities/render.js\");\n/* harmony import */ var _Button_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Button/Button */ \"./src/components/Button/Button.js\");\n/* harmony import */ var _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/todoStore/todosStore */ \"./src/store/todoStore/todosStore.js\");\n\n\n\n\nvar TodoItem = function TodoItem(container, todoTitle, todoDescription, todoId) {\n  var id = todoId;\n  var element = (0,_utilities_render__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"div\", container, \"todoItem\");\n  element.setAttribute(\"id\", id);\n\n  var onDeleteHandler = function onDeleteHandler() {\n    _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_2__.todosStore.dispatch({\n      type: \"REMOVE_TODO\",\n      payload: {\n        id: id\n      }\n    });\n  };\n\n  var title = (0,_utilities_render__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"h1\", element, \"title\");\n  title.innerHTML = todoTitle;\n  var description = (0,_utilities_render__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"p\", element, \"description\");\n  description.innerHTML = todoDescription;\n  var deleteButton = (0,_Button_Button__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(element, onDeleteHandler);\n  return {\n    id: id,\n    element: element,\n    title: title,\n    description: description\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TodoItem);\n\n//# sourceURL=webpack://todo---project/./src/components/TodoItem/TodoItem.js?");
+
+/***/ }),
+
+/***/ "./src/components/TodosContainer/TodosContainer.js":
+/*!*********************************************************!*\
+  !*** ./src/components/TodosContainer/TodosContainer.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utilities_render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/render */ \"./src/utilities/render.js\");\n/* harmony import */ var _Todos_Todos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Todos/Todos */ \"./src/components/Todos/Todos.js\");\n/* harmony import */ var _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store/todoStore/todosStore */ \"./src/store/todoStore/todosStore.js\");\n\n\n\n\nvar TodosContainer = function TodosContainer(container) {\n  var element = (0,_utilities_render__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"div\", container, \"todosContainer\");\n  var undoneTodosList = _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_2__.todosStore.getState().filter(function (todo) {\n    return todo.done === false;\n  });\n  var doneTodosList = _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_2__.todosStore.getState().filter(function (todo) {\n    return todo.done === false;\n  });\n  var undoneTodos = (0,_Todos_Todos__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(element, undoneTodosList, \"undoneTodos\");\n  var doneTodos = (0,_Todos_Todos__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(element, doneTodosList, \"doneTodos\");\n  return {\n    element: element,\n    undoneTodos: undoneTodos,\n    doneTodos: doneTodos\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TodosContainer);\n\n//# sourceURL=webpack://todo---project/./src/components/TodosContainer/TodosContainer.js?");
+
+/***/ }),
+
+/***/ "./src/components/Todos/Todos.js":
+/*!***************************************!*\
+  !*** ./src/components/Todos/Todos.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _utilities_render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/render */ \"./src/utilities/render.js\");\n/* harmony import */ var _utilities_renderTodos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/renderTodos */ \"./src/utilities/renderTodos.js\");\n\n\n\nvar Todos = function Todos(container, listOfTodos, className) {\n  var element = (0,_utilities_render__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"div\", container, className);\n  var todos = (0,_utilities_renderTodos__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(element, listOfTodos);\n  return {\n    element: element,\n    todos: todos\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Todos);\n\n//# sourceURL=webpack://todo---project/./src/components/Todos/Todos.js?");
+
+/***/ }),
+
+/***/ "./src/components/app.js":
+/*!*******************************!*\
+  !*** ./src/components/app.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../store/todoStore/todosStore */ \"./src/store/todoStore/todosStore.js\");\n/* harmony import */ var _utilities_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/render */ \"./src/utilities/render.js\");\n/* harmony import */ var _Form_Form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Form/Form */ \"./src/components/Form/Form.js\");\n/* harmony import */ var _TodosContainer_TodosContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TodosContainer/TodosContainer */ \"./src/components/TodosContainer/TodosContainer.js\");\n\n\n\n // main commponent\n\nvar App = function App(container) {\n  var element = (0,_utilities_render__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"div\", container, \"appContainer\");\n  var form = (0,_Form_Form__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(element);\n  _store_todoStore_todosStore__WEBPACK_IMPORTED_MODULE_0__.todosStore.subscribe((0,_TodosContainer_TodosContainer__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(element));\n  (0,_TodosContainer_TodosContainer__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(element);\n  return element;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://todo---project/./src/components/app.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_Form_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Form/Form */ \"./src/components/Form/Form.js\");\n/* harmony import */ var _components_Input_Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Input/Input */ \"./src/components/Input/Input.js\");\n// import { store } from \"./todoStore/todosStore\";\n\n // import App from \"./components/app\";\n// // console.log(store);\n// const app = App();\n\nvar body = document.querySelector(\"body\");\nvar form = (0,_components_Form_Form__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(body);\n\n//# sourceURL=webpack://todo---project/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/app */ \"./src/components/app.js\");\n // // console.log(store);\n// const app = App();\n\nvar body = document.querySelector(\"body\");\nvar app = (0,_components_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(body);\n\n//# sourceURL=webpack://todo---project/./src/index.js?");
 
 /***/ }),
 
@@ -137,6 +177,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _addClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addClass */ \"./src/utilities/addClass.js\");\n/* harmony import */ var _createElem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createElem */ \"./src/utilities/createElem.js\");\n/* harmony import */ var _mountElem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mountElem */ \"./src/utilities/mountElem.js\");\n\n\n\n\nvar render = function render() {\n  var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : \"h1\";\n  var container = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;\n  var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : \"\";\n  var htmlElement = (0,_createElem__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(element);\n  (0,_mountElem__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(htmlElement, container);\n  (0,_addClass__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(htmlElement, className);\n  return htmlElement;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n//# sourceURL=webpack://todo---project/./src/utilities/render.js?");
+
+/***/ }),
+
+/***/ "./src/utilities/renderTodos.js":
+/*!**************************************!*\
+  !*** ./src/utilities/renderTodos.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _components_TodoItem_TodoItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/TodoItem/TodoItem */ \"./src/components/TodoItem/TodoItem.js\");\n\n\nvar renderTodos = function renderTodos(container, listOfTodos) {\n  return listOfTodos.map(function (todo) {\n    return (0,_components_TodoItem_TodoItem__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(container, todo.title, todo.description, todo.id);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderTodos);\n\n//# sourceURL=webpack://todo---project/./src/utilities/renderTodos.js?");
 
 /***/ })
 

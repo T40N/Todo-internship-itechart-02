@@ -1,15 +1,22 @@
-import BaseComponent from "./BaseComponent/BaseComponent";
+import { todosStore } from "../store/todoStore/todosStore";
+import render from "../utilities/render";
+import unmountElem from "../utilities/unmountElem";
 import Form from "./Form/Form";
+import TodosContainer from "./TodosContainer/TodosContainer";
 
 // main commponent
-const App = () => {
-  const body = document.querySelector("body");
-  const base = BaseComponent("div", body);
-  const element = base.create();
-  base.mount();
+const App = (container) => {
+  const element = render("div", container, "appContainer");
 
-  const form = Form("form");
+  const form = Form(element);
+  let todos = TodosContainer(element);
 
+  const updateTodos = () => {
+    unmountElem(todos.element);
+    todos = TodosContainer(element);
+  };
+
+  todosStore.subscribe(updateTodos);
   return element;
 };
 
