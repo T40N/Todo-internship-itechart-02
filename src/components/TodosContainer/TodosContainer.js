@@ -1,6 +1,7 @@
 import render from "../../utilities/render";
 import Todos from "../Todos/Todos";
 import { todosStore } from "../../store/todoStore/todosStore";
+import "./TodosContainer.css";
 
 const TodosContainer = (container) => {
   const element = render("div", container, "todosContainer");
@@ -12,8 +13,13 @@ const TodosContainer = (container) => {
     .getState()
     .filter((todo) => todo.done === true);
 
-  const undoneTodos = Todos(element, undoneTodosList, "undoneTodos");
-  const doneTodos = Todos(element, doneTodosList, "doneTodos");
+  const undoneTodos = Todos(
+    element,
+    undoneTodosList,
+    "Undone todos",
+    "undoneTodos"
+  );
+  const doneTodos = Todos(element, doneTodosList, "Done todos", "doneTodos");
 
   return {
     element,

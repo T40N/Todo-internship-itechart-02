@@ -1,3 +1,4 @@
+import "./global-styles.css";
 import App from "./components/app";
 
 const body = document.querySelector("body");

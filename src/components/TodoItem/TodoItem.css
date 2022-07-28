@@ -1,0 +1,10 @@
+.todoItem {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 1px solid black;
+  cursor: move;
+}
