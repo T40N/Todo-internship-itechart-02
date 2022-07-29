@@ -27,7 +27,7 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   const description = render("p", element, "description");
   description.innerHTML = todoDescription;
 
-  const deleteButton = Button(element, onDeleteHandler);
+  const deleteButton = Button(element, "+", onDeleteHandler);
   return {
     id,
     element,

@@ -15,7 +15,7 @@ const Header = (container, titleText) => {
 
   const headerTitle = render("h1", element, "header__title");
   headerTitle.innerHTML = titleText;
-  const modeButton = Button(element, changeModeHandler);
+  const modeButton = Button(element, "+", changeModeHandler);
   addClass(modeButton, "header__mode-button");
 
   return {

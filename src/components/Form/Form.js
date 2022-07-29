@@ -34,7 +34,7 @@ const Form = (container) => {
   const element = render("form", container, "form");
   const titleInput = Input(element, onTitleChangeHandler);
   const descriptionInput = Input(element, onDescriptionChangeHandler);
-  const submitButton = Button(element, onSubmitHandler);
+  const submitButton = Button(element, "+", onSubmitHandler);
 
   addEventListener(element, "submit", onSubmitHandler);
 
