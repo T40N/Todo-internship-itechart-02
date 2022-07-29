@@ -1,7 +1,8 @@
-import render from "../../utilities/render";
+import render from "../../utilities/domManipulationsFunctions.js/render";
 import Button from "../Button/Button";
 import "./TodoItem.css";
 import { todosStore } from "../../store/todoStore/todosStore";
+import addDragElemListeners from "../../utilities/dragAndDropListeners/addDragElemListeners";
 
 const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   let id = todoId;
@@ -11,12 +12,14 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
 
   const onDeleteHandler = () => {
     todosStore.dispatch({
-      type: "REMOVE_TODO",
+      type: "todosReducer/REMOVE_TODO",
       payload: {
         id: id,
       },
     });
   };
+
+  addDragElemListeners(element);
 
   const title = render("h1", element, "title");
   title.innerHTML = todoTitle;

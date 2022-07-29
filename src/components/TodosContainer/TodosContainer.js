@@ -1,4 +1,4 @@
-import render from "../../utilities/render";
+import render from "../../utilities/domManipulationsFunctions.js/render";
 import Todos from "../Todos/Todos";
 import { todosStore } from "../../store/todoStore/todosStore";
 import "./TodosContainer.css";
@@ -6,12 +6,12 @@ import "./TodosContainer.css";
 const TodosContainer = (container) => {
   const element = render("div", container, "todosContainer");
 
-  const undoneTodosList = todosStore.getState().filter((todo) => {
+  const undoneTodosList = todosStore.getState().todos.filter((todo) => {
     return todo.done === false;
   });
   const doneTodosList = todosStore
     .getState()
-    .filter((todo) => todo.done === true);
+    .todos.filter((todo) => todo.done === true);
 
   const undoneTodos = Todos(
     element,

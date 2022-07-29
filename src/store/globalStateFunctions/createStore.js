@@ -1,7 +1,7 @@
 // createStore function
 
-const createStore = (reducer) => {
-  let state = [];
+const createStore = (reducer, initialState) => {
+  let state = initialState;
   const listeners = [];
 
   const getState = () => {

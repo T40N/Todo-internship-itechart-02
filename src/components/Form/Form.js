@@ -1,5 +1,5 @@
-import addEventListener from "../../utilities/addEventListener";
-import render from "../../utilities/render";
+import addEventListener from "../../utilities/domManipulationsFunctions.js/addEventListener";
+import render from "../../utilities/domManipulationsFunctions.js/render";
 import Input from "../Input/Input";
 import { addTodoId, todosStore } from "../../store/todoStore/todosStore";
 import Button from "../Button/Button";
@@ -17,10 +17,9 @@ const Form = (container) => {
   };
 
   const onSubmitHandler = (event) => {
-    console.log("submited!");
     event.preventDefault();
     todosStore.dispatch({
-      type: "ADD_TODO",
+      type: "todosReducer/ADD_TODO",
       payload: {
         id: addTodoId(),
         title: titleInputValue,
@@ -28,7 +27,6 @@ const Form = (container) => {
         done: false,
       },
     });
-    console.log(todosStore.getState());
     titleInput.value = "";
     descriptionInput.value = "";
   };

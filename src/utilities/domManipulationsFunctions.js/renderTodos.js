@@ -1,4 +1,4 @@
-import TodoItem from "../components/TodoItem/TodoItem";
+import TodoItem from "../../components/TodoItem/TodoItem";
 
 const renderTodos = (container, listOfTodos) => {
   return listOfTodos.map((todo) => {

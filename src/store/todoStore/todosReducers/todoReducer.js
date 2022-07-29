@@ -5,7 +5,7 @@ const todoReducer = (state = {}, action) => {
         id: action.payload.id,
         title: action.payload.title,
         description: action.payload.description,
-        done: false,
+        done: action.payload.done,
       };
     case "REMOVE_TODO":
       return state.id !== action.payload.id;
@@ -13,6 +13,7 @@ const todoReducer = (state = {}, action) => {
       if (state.id !== action.payload.id) {
         return state;
       }
+
       return {
         ...state,
         done: !state.done,
