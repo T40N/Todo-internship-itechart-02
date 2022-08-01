@@ -10,6 +10,9 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   element.setAttribute("id", id);
   element.setAttribute("draggable", true);
 
+  const descriptionContainer = render("div", element, "descriptionContainer");
+  const buttonContainer = render("div", element, "buttonContainer");
+
   const onDeleteHandler = () => {
     todosStore.dispatch({
       type: "todosReducer/REMOVE_TODO",
@@ -21,13 +24,13 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
 
   addDragElemListeners(element);
 
-  const title = render("h1", element, "title");
+  const title = render("h1", descriptionContainer, "todoItem__title");
   title.innerHTML = todoTitle;
 
-  const description = render("p", element, "description");
+  const description = render("p", descriptionContainer, "description");
   description.innerHTML = todoDescription;
 
-  const deleteButton = Button(element, "+", onDeleteHandler);
+  const deleteButton = Button(buttonContainer, "-", onDeleteHandler);
   return {
     id,
     element,

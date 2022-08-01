@@ -5,18 +5,20 @@
 
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
 
-.undoneTodos {
-  width: 40%;
-  height: 500px;
-
-  /* border: 1px solid red; */
+.undoneTodos > .todoItem {
+  background-color: #237bff;
 }
 
-.doneTodos {
-  width: 40%;
-  height: 500px;
-  /* border: 1px solid red; */
+.undoneTodos > .todoItem > .buttonContainer > .button {
+  background-color: #eb06ff;
+}
+
+.doneTodos > .todoItem {
+  background-color: #eb06ff;
+}
+
+.doneTodos > .todoItem > .buttonContainer > .button {
+  background-color: #237bff;
 }

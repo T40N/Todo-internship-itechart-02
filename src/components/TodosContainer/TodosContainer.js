@@ -13,13 +13,8 @@ const TodosContainer = (container) => {
     .getState()
     .todos.filter((todo) => todo.done === true);
 
-  const undoneTodos = Todos(
-    element,
-    undoneTodosList,
-    "Undone todos",
-    "undoneTodos"
-  );
-  const doneTodos = Todos(element, doneTodosList, "Done todos", "doneTodos");
+  const undoneTodos = Todos(element, undoneTodosList, "Undone", "undoneTodos");
+  const doneTodos = Todos(element, doneTodosList, "Done", "doneTodos");
 
   return {
     element,
