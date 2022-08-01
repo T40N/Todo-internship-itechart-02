@@ -13,14 +13,14 @@
 
 @media screen and (max-width: 1000px) {
   .todos {
-    width: 40%;
+    width: 50%;
     min-height: 300px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .todos {
-    width: 60%;
+    width: 90%;
   }
 }
 
