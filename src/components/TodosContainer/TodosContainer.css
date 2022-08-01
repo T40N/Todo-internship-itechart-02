@@ -7,6 +7,14 @@
   justify-content: space-around;
 }
 
+@media screen and (max-width: 1000px) {
+  .todosContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .undoneTodos > .todoItem {
   background-color: #237bff;
 }

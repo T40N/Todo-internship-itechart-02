@@ -11,6 +11,19 @@
   box-shadow: 3px 5px 8px rgba(4, 25, 85, 0.25);
 }
 
+@media screen and (max-width: 1000px) {
+  .todos {
+    width: 40%;
+    min-height: 300px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .todos {
+    width: 60%;
+  }
+}
+
 .title {
   font-size: 4rem;
 }

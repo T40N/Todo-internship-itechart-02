@@ -24,3 +24,15 @@
 .errorText {
   color: red;
 }
+
+@media screen and (max-width: 1000px) {
+  .form {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .form {
+    width: 60%;
+  }
+}
