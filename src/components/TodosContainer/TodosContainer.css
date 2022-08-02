@@ -1,0 +1,40 @@
+.app__todos-container {
+  width: 100%;
+  height: 70%;
+  min-height: 70%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.app__undone-todos > .todo-item {
+  background-color: #237bff;
+}
+
+.app__undone-todos
+  > .todo-item
+  > .todo-item__button-container
+  > .todo-item__delete-button {
+  background-color: #eb06ff;
+}
+
+.app__done-todos > .todo-item {
+  background-color: #eb06ff;
+  text-decoration: line-through;
+  text-decoration-color: #f3f5f7;
+}
+
+.app__done-todos
+  > .todo-item
+  > .todo-item__button-container
+  > .todo-item__delete-button {
+  background-color: #237bff;
+}
+
+@media screen and (max-width: 1000px) {
+  .app__todos-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
