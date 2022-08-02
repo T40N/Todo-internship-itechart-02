@@ -2,13 +2,13 @@ import TodosStore from "../store/todosStore/todosStore";
 import { addTodoId } from "../store/todosStore/todosStore";
 class DragAndDrop {
   constructor() {
-    // if (DragAndDrop.exists) {
-    //   return DragAndDrop.instance;
-    // }
+    if (DragAndDrop.exists) {
+      return DragAndDrop.instance;
+    }
     this.elementID = "";
     this.containerId = "";
-    // DragAndDrop.exists = true;
-    // DragAndDrop.instance = this;
+    DragAndDrop.exists = true;
+    DragAndDrop.instance = this;
   }
 
   start(event) {
