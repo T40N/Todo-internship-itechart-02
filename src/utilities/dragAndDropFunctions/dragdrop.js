@@ -3,48 +3,55 @@ import { containerId } from "./dragenter";
 import { addTodoId } from "../../store/todoStore/todosStore";
 const dragdrop = (event) => {
   event.stopPropagation();
-  let copyKeyPressed = false;
+
   const id = event.dataTransfer.getData("text/plain");
+  const todoToDrop = todosStore.getState().todos.find((todo) => todo.id === id);
+
+  let copyKeyPressed = false;
   if (event.ctrlKey) {
     copyKeyPressed = true;
   }
-  const todoToDrop = todosStore.getState().todos.find((todo) => todo.id === id);
-  if (
-    (todoToDrop.done === false && containerId === "doneTodos") ||
-    (todoToDrop.done === true && containerId === "undoneTodos")
-  ) {
+
+  if (checkIfShouldDrop(todoToDrop, containerId)) {
     if (copyKeyPressed) {
-      todosStore.dispatch({
-        type: "ADD_TODO",
-        payload: {
-          id: addTodoId(),
-          title: todoToDrop.title,
-          description: todoToDrop.description,
-          done: !todoToDrop.done,
-        },
-      });
+      copyTodo(todoToDrop, !todoToDrop.done);
       return;
     }
-    todosStore.dispatch({
-      type: "TOGGLE_TODO",
-      payload: {
-        id: id,
-      },
-    });
+    toggleTodo(id);
   } else {
     if (copyKeyPressed) {
-      todosStore.dispatch({
-        type: "ADD_TODO",
-        payload: {
-          id: addTodoId(),
-          title: todoToDrop.title,
-          description: todoToDrop.description,
-          done: todoToDrop.done,
-        },
-      });
+      copyTodo(todoToDrop, todoToDrop.done);
       return;
     }
   }
+};
+
+const checkIfShouldDrop = (todoToDrop, containerId) => {
+  return (
+    (todoToDrop.done === false && containerId === "done") ||
+    (todoToDrop.done === true && containerId === "undone")
+  );
+};
+
+const toggleTodo = (id) => {
+  todosStore.dispatch({
+    type: "TOGGLE_TODO",
+    payload: {
+      id: id,
+    },
+  });
+};
+
+const copyTodo = (todoToAdd, done) => {
+  todosStore.dispatch({
+    type: "ADD_TODO",
+    payload: {
+      id: addTodoId(),
+      title: todoToAdd.title,
+      description: todoToAdd.description,
+      done: done,
+    },
+  });
 };
 
 export default dragdrop;

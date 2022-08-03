@@ -4,7 +4,7 @@ import { todosStore } from "../../store/todoStore/todosStore";
 import "./TodosContainer.css";
 
 const TodosContainer = (container) => {
-  const element = render("div", container, "todosContainer");
+  const element = render("div", container, "app__todos-container");
 
   const undoneTodosList = todosStore.getState().todos.filter((todo) => {
     return todo.done === false;
@@ -13,9 +13,20 @@ const TodosContainer = (container) => {
     .getState()
     .todos.filter((todo) => todo.done === true);
 
-  const undoneTodos = Todos(element, undoneTodosList, "Undone", "undoneTodos");
-  const doneTodos = Todos(element, doneTodosList, "Done", "doneTodos");
-
+  const undoneTodos = Todos(
+    element,
+    undoneTodosList,
+    "Undone",
+    "app__undone-todos",
+    "undone"
+  );
+  const doneTodos = Todos(
+    element,
+    doneTodosList,
+    "Done",
+    "app__done-todos",
+    "done"
+  );
   return {
     element,
     undoneTodos,
