@@ -7,6 +7,7 @@
   margin-top: 2%;
   margin-bottom: 2%;
   cursor: move;
+  box-shadow: 3px 5px 8px rgba(4, 25, 85, 0.25);
 }
 
 .todo-item__description-container {
@@ -19,6 +20,5 @@
 }
 
 .todo-item__title {
-  align-self: center;
   font-size: 1.6rem;
 }
