@@ -4,11 +4,11 @@ import renderTodos from "../../utilities/domManipulationsFunctions.js/renderTodo
 import "./Todos.css";
 import addClass from "../../utilities/domManipulationsFunctions.js/addClass";
 
-const Todos = (container, listOfTodos, title, className) => {
+const Todos = (container, listOfTodos, title, className, id) => {
   const element = render("div", container, "todos");
   addClass(element, className);
-  element.setAttribute("id", className);
-  const todosTitle = render("h2", element, "title");
+  element.setAttribute("id", id);
+  const todosTitle = render("h2", element, "todos__title");
   todosTitle.innerHTML = title;
   const todos = renderTodos(element, listOfTodos);
 

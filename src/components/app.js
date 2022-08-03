@@ -1,7 +1,6 @@
 import { todosStore } from "../store/todoStore/todosStore";
 import render from "../utilities/domManipulationsFunctions.js/render";
 import unmountElem from "../utilities/domManipulationsFunctions.js/unmountElem";
-import addCopyOptionListener from "../utilities/dragAndDropListeners/addCopyOptionListener";
 import Form from "./Form/Form";
 import TodosContainer from "./TodosContainer/TodosContainer";
 import addClass from "../utilities/domManipulationsFunctions.js/addClass";
@@ -32,7 +31,6 @@ const App = (container) => {
   };
 
   updateStyle();
-  addCopyOptionListener();
   todosStore.subscribe(updateTodos);
   todosStore.subscribe(updateStyle);
   return element;
