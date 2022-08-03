@@ -2,13 +2,13 @@ import TodosStore from "../store/todosStore/todosStore";
 import { addTodoId } from "../store/todosStore/todosStore";
 class DragAndDrop {
   constructor() {
-    // if (DragAndDrop.exists) {
-    //   return DragAndDrop.instance;
-    // }
+    if (DragAndDrop.exists) {
+      return DragAndDrop.instance;
+    }
     this.elementID = "";
     this.containerId = "";
-    // DragAndDrop.exists = true;
-    // DragAndDrop.instance = this;
+    DragAndDrop.exists = true;
+    DragAndDrop.instance = this;
   }
 
   start(event) {
@@ -21,7 +21,6 @@ class DragAndDrop {
   }
 
   enter(event) {
-    console.log(event.target);
     if (event.target.classList.contains("todos")) {
       event.target.classList.add("over");
       this.containerId = event.target.id;
@@ -45,11 +44,8 @@ class DragAndDrop {
     }
 
     this.getTodoToDrop();
-    console.log(this.containerId);
-    if (
-      (this.todoToDrop.done === false && this.containerId === "done") ||
-      (this.todoToDrop.done === true && this.containerId === "undone")
-    ) {
+
+    if (this.checkIfShouldDrop()) {
       if (copyKeyPressed) {
         this.copyTodo(!this.todoToDrop.done);
         return;
@@ -71,6 +67,13 @@ class DragAndDrop {
     );
   }
 
+  checkIfShouldDrop() {
+    return (
+      (this.todoToDrop.done === false && this.containerId === "done") ||
+      (this.todoToDrop.done === true && this.containerId === "undone")
+    );
+  }
+
   copyTodo(done) {
     TodosStore.dispatch({
       type: "todosReducer/ADD_TODO",
@@ -84,8 +87,6 @@ class DragAndDrop {
   }
 
   toggleTodo(id) {
-    console.log("dispatch");
-    console.log(id);
     TodosStore.dispatch({
       type: "todosReducer/TOGGLE_TODO",
       payload: {

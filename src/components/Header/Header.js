@@ -24,7 +24,6 @@ class Header extends BaseComponent {
 
     this.ModeImg = new BaseComponent("img", this.htmlElement);
     this.ModeImg.setAttribute("src", darkmode);
-    console.log(this.ModeImg.getHtmlElement());
     this.ModeButton.appendChild(this.ModeImg.getHtmlElement());
   }
 
