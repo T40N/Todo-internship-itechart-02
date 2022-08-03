@@ -22,7 +22,6 @@ class App extends BaseComponent {
   }
 
   updateTodos() {
-    console.log("update");
     this.TodosContainer.dismount();
     this.TodosContainer = new TodosContainer(this.htmlElement);
   }

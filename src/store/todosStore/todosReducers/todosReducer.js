@@ -1,7 +1,6 @@
 import todoReducer from "./todoReducer";
 
 const todosReducer = (state = [], action) => {
-  console.log(state);
   switch (action.type) {
     case "ADD_TODO":
       return [...state, todoReducer(undefined, action)];

@@ -12,7 +12,6 @@ class TodosContainer extends BaseComponent {
   }
 
   segregateTodosData() {
-    console.log(TodosStore.getState());
     this.undoneTodosData = TodosStore.getState().todos.filter(
       (todo) => todo.done !== true
     );

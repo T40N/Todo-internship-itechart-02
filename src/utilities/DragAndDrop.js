@@ -21,7 +21,6 @@ class DragAndDrop {
   }
 
   enter(event) {
-    console.log(event.target);
     if (event.target.classList.contains("todos")) {
       event.target.classList.add("over");
       this.containerId = event.target.id;
@@ -40,16 +39,13 @@ class DragAndDrop {
     event.stopPropagation();
 
     let copyKeyPressed = false;
+
     if (event.ctrlKey) {
       copyKeyPressed = true;
     }
 
     this.getTodoToDrop();
-    console.log(this.containerId);
-    if (
-      (this.todoToDrop.done === false && this.containerId === "done") ||
-      (this.todoToDrop.done === true && this.containerId === "undone")
-    ) {
+    if (this.checkIfShouldDrop()) {
       if (copyKeyPressed) {
         this.copyTodo(!this.todoToDrop.done);
         return;
@@ -71,6 +67,13 @@ class DragAndDrop {
     );
   }
 
+  checkIfShouldDrop() {
+    return (
+      (this.todoToDrop.done === false && this.containerId === "done") ||
+      (this.todoToDrop.done === true && this.containerId === "undone")
+    );
+  }
+
   copyTodo(done) {
     TodosStore.dispatch({
       type: "ADD_TODO",
@@ -84,8 +87,6 @@ class DragAndDrop {
   }
 
   toggleTodo(id) {
-    console.log("dispatch");
-    console.log(id);
     TodosStore.dispatch({
       type: "TOGGLE_TODO",
       payload: {
