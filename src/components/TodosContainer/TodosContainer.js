@@ -1,4 +1,4 @@
-import render from "../../utilities/domManipulationsFunctions.js/render";
+import render from "../../utilities/domManipulationsFunctions/render";
 import Todos from "../Todos/Todos";
 import { todosStore } from "../../store/todoStore/todosStore";
 import "./TodosContainer.css";
@@ -15,6 +15,8 @@ const TodosContainer = (container) => {
 
   const undoneTodos = Todos(element, undoneTodosList, "Undone", "undoneTodos");
   const doneTodos = Todos(element, doneTodosList, "Done", "doneTodos");
+
+  //TODO: refactor of subscribe function
 
   return {
     element,

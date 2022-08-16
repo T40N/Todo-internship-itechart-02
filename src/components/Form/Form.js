@@ -1,5 +1,5 @@
-import addEventListener from "../../utilities/domManipulationsFunctions.js/addEventListener";
-import render from "../../utilities/domManipulationsFunctions.js/render";
+import addEventListener from "../../utilities/domManipulationsFunctions/addEventListener";
+import render from "../../utilities/domManipulationsFunctions/render";
 import Input from "../Input/Input";
 import { addTodoId, todosStore } from "../../store/todoStore/todosStore";
 import Button from "../Button/Button";

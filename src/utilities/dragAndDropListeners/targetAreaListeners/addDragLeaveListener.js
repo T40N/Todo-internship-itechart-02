@@ -1,4 +1,4 @@
-import addEventListener from "../../domManipulationsFunctions.js/addEventListener";
+import addEventListener from "../../domManipulationsFunctions/addEventListener";
 import dragleave from "../../dragAndDropFunctions/dragleave";
 
 const addDragLeaveListener = (target) => {

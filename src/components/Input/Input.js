@@ -1,5 +1,5 @@
-import addEventListener from "../../utilities/domManipulationsFunctions.js/addEventListener";
-import render from "../../utilities/domManipulationsFunctions.js/render";
+import addEventListener from "../../utilities/domManipulationsFunctions/addEventListener";
+import render from "../../utilities/domManipulationsFunctions/render";
 import "./input.css";
 
 const Input = (container, eventCallback, placeholder) => {

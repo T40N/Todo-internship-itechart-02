@@ -1,4 +1,4 @@
-import addEventListener from "../../domManipulationsFunctions.js/addEventListener";
+import addEventListener from "../../domManipulationsFunctions/addEventListener";
 import dragenter from "../../dragAndDropFunctions/dragenter";
 const addDragEnterListener = (target) => {
   return addEventListener(target, "dragenter", dragenter);

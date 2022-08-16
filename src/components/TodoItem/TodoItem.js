@@ -1,4 +1,4 @@
-import render from "../../utilities/domManipulationsFunctions.js/render";
+import render from "../../utilities/domManipulationsFunctions/render";
 import Button from "../Button/Button";
 import "./TodoItem.css";
 import { todosStore } from "../../store/todoStore/todosStore";

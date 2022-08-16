@@ -1,7 +1,7 @@
-import render from "../../utilities/domManipulationsFunctions.js/render";
+import render from "../../utilities/domManipulationsFunctions/render";
 import Button from "../Button/Button";
 import { todosStore } from "../../store/todoStore/todosStore";
-import addClass from "../../utilities/domManipulationsFunctions.js/addClass";
+import addClass from "../../utilities/domManipulationsFunctions/addClass";
 const lightmode = require("../../assets/lightmode.svg");
 const darkmode = require("../../assets/darkmode.svg");
 import "./Header.css";

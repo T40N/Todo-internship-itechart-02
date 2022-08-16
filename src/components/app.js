@@ -1,11 +1,11 @@
 import { todosStore } from "../store/todoStore/todosStore";
-import render from "../utilities/domManipulationsFunctions.js/render";
-import unmountElem from "../utilities/domManipulationsFunctions.js/unmountElem";
+import render from "../utilities/domManipulationsFunctions/render";
+import unmountElem from "../utilities/domManipulationsFunctions/unmountElem";
 import addCopyOptionListener from "../utilities/dragAndDropListeners/addCopyOptionListener";
 import Form from "./Form/Form";
 import TodosContainer from "./TodosContainer/TodosContainer";
-import addClass from "../utilities/domManipulationsFunctions.js/addClass";
-import removeClass from "../utilities/domManipulationsFunctions.js/removeClass";
+import addClass from "../utilities/domManipulationsFunctions/addClass";
+import removeClass from "../utilities/domManipulationsFunctions/removeClass";
 import Header from "./Header/Header";
 import "./app.css";
 
@@ -33,6 +33,8 @@ const App = (container) => {
 
   updateStyle();
   addCopyOptionListener();
+
+  // TODO: subscribe methods in different place
   todosStore.subscribe(updateTodos);
   todosStore.subscribe(updateStyle);
   return element;
