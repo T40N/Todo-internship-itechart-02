@@ -51,8 +51,8 @@ const Form = (container) => {
     element.reset();
   };
 
-  const element = render("form", container, "form");
-  const errorText = render("p", element, "errorText");
+  const element = render("form", container, "app__form");
+  const errorText = render("p", element, "form__error-text");
   const titleInput = Input(element, onTitleChangeHandler, "Title");
   const descriptionInput = Input(
     element,

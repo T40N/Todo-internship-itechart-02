@@ -1,7 +1,6 @@
 import { todosStore } from "../store/todoStore/todosStore";
 import render from "../utilities/domManipulationsFunctions/render";
 import unmountElem from "../utilities/domManipulationsFunctions/unmountElem";
-import addCopyOptionListener from "../utilities/dragAndDropListeners/addCopyOptionListener";
 import Form from "./Form/Form";
 import TodosContainer from "./TodosContainer/TodosContainer";
 import addClass from "../utilities/domManipulationsFunctions/addClass";
@@ -32,9 +31,6 @@ const App = (container) => {
   };
 
   updateStyle();
-  addCopyOptionListener();
-
-  // TODO: subscribe methods in different place
   todosStore.subscribe(updateTodos);
   todosStore.subscribe(updateStyle);
   return element;

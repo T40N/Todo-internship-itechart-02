@@ -1,4 +1,4 @@
-.todoItem {
+.todo-item {
   width: 90%;
   display: flex;
   border-radius: 1rem;
@@ -7,9 +7,10 @@
   margin-top: 2%;
   margin-bottom: 2%;
   cursor: move;
+  box-shadow: 3px 5px 8px rgba(4, 25, 85, 0.25);
 }
 
-.descriptionContainer {
+.todo-item__description-container {
   min-width: 30%;
   max-width: 70%;
   display: flex;
@@ -19,7 +20,6 @@
   color: #f3f5f7;
 }
 
-.todoItem__title {
-  align-self: center;
+.todo-item__title {
   font-size: 1.6rem;
 }

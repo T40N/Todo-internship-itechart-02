@@ -7,7 +7,8 @@ const dragdrop = (event) => {
   event.stopPropagation();
 
   const id = event.dataTransfer.getData("text/plain");
-  const todoToDrop = todosStore.getState().todos.find((todo) => todo.id === id);
+  const todoToDrop = getTodoToDrop(id);
+
 
   let copyKeyPressed = false;
   if (event.ctrlKey) {
@@ -49,11 +50,15 @@ const copyTodo = (todoToAdd, done) => {
     type: "todosReducer/ADD_TODO",
     payload: {
       id: addTodoId(),
-      title: todoToDrop.title,
-      description: todoToDrop.description,
-      done: !todoToDrop.done,
+      title: todoToAdd.title,
+      description: todoToAdd.description,
+      done: done,
     },
   });
+};
+
+const getTodoToDrop = (elementID) => {
+  return todosStore.getState().todos.find((todo) => todo.id === elementID);
 };
 
 export default dragdrop;
