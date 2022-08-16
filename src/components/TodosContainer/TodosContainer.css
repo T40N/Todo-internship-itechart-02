@@ -25,6 +25,8 @@
 
 .doneTodos > .todoItem {
   background-color: #eb06ff;
+  text-decoration: line-through;
+  text-decoration-color: #f3f5f7;
 }
 
 .doneTodos > .todoItem > .buttonContainer > .button {
