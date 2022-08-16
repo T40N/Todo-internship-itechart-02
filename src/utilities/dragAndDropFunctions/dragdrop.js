@@ -1,14 +1,12 @@
 import { todosStore } from "../../store/todoStore/todosStore";
 import { containerId } from "./dragenter";
-import { addTodoId } from "../../store/todoStore/todosStore";
-//TODO: refactor dragdrop
+import { addTodo, toggleTodo } from "../../store/actions";
 
 const dragdrop = (event) => {
   event.stopPropagation();
 
   const id = event.dataTransfer.getData("text/plain");
-  const todoToDrop = getTodoToDrop(id);
-
+  const { title, description, done } = getTodoToDrop(id);
 
   let copyKeyPressed = false;
   if (event.ctrlKey) {
@@ -17,15 +15,18 @@ const dragdrop = (event) => {
 
   if (checkIfShouldDrop(todoToDrop, containerId)) {
     if (copyKeyPressed) {
-      copyTodo(todoToDrop, !todoToDrop.done);
+      let toggleDone = done;
+
+      addTodo({ title, description, toggleDone });
       return;
     }
     toggleTodo(id);
-  } else {
-    if (copyKeyPressed) {
-      copyTodo(todoToDrop, todoToDrop.done);
-      return;
-    }
+    return;
+  }
+
+  if (copyKeyPressed) {
+    addTodo({ title, description, done });
+    return;
   }
 };
 
@@ -34,27 +35,6 @@ const checkIfShouldDrop = (todoToDrop, containerId) => {
     (todoToDrop.done === false && containerId === "done") ||
     (todoToDrop.done === true && containerId === "undone")
   );
-};
-
-const toggleTodo = (id) => {
-  todosStore.dispatch({
-    type: "todosReducer/TOGGLE_TODO",
-    payload: {
-      id: id,
-    },
-  });
-};
-
-const copyTodo = (todoToAdd, done) => {
-  todosStore.dispatch({
-    type: "todosReducer/ADD_TODO",
-    payload: {
-      id: addTodoId(),
-      title: todoToAdd.title,
-      description: todoToAdd.description,
-      done: done,
-    },
-  });
 };
 
 const getTodoToDrop = (elementID) => {
