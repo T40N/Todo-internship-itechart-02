@@ -1,8 +1,8 @@
 import { todosStore } from "../../store/todoStore/todosStore";
-import { containerId } from "./dragenter";
+import { containerId } from "../../utilities/dragAndDropFunctions/dragenter";
 import { addTodo, toggleTodo } from "../../store/actions";
 
-const dragdrop = (event) => {
+const drop = (event) => {
   event.stopPropagation();
 
   const id = event.dataTransfer.getData("text/plain");
@@ -41,4 +41,4 @@ const getTodoToDrop = (elementID) => {
   return todosStore.getState().todos.find((todo) => todo.id === elementID);
 };
 
-export default dragdrop;
+export default drop;

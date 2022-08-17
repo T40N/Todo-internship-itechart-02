@@ -9,7 +9,7 @@ export const setDraggableListeners = (element, { onDragStart, onDragEnd }) => {
 
 export const setDroppableListeners = (
   element,
-  { onDrop, onDragOver, onDragLeave }
+  { onDrop, onDragOver, onDragEnter, onDragLeave }
 ) => {
   if (onDrop) {
     element.addEventListener("drop", onDrop);
@@ -17,6 +17,10 @@ export const setDroppableListeners = (
 
   if (onDragOver) {
     element.addEventListener("dragover", onDragOver);
+  }
+
+  if (onDragEnter) {
+    element.addEventListener("dragover", oonDragEnter);
   }
 
   if (onDragLeave) {

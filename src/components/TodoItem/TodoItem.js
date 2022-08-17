@@ -2,8 +2,8 @@ import render from "../../utilities/domManipulationsFunctions/render";
 import Button from "../Button/Button";
 import "./TodoItem.css";
 import { todosStore } from "../../store/todoStore/todosStore";
-import addDragElemListeners from "../../utilities/dragAndDropListeners/addDragElemListeners";
 import addClass from "../../utilities/domManipulationsFunctions.js/addClass";
+import { setDraggableListeners } from "../../utilities/setDragListeners";
 
 const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   let id = todoId;
@@ -27,8 +27,6 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
     });
   };
 
-  addDragElemListeners(element);
-
   const title = render("h1", descriptionContainer, "todo-item__title");
   title.innerHTML = todoTitle;
 
@@ -41,6 +39,22 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
 
   const deleteButton = Button(buttonContainer, "-", onDeleteHandler);
   addClass(deleteButton, "todo-item__delete-button");
+
+  const onDragStart = (event) => {
+    event.target.style.opacity = "0.4";
+
+    event.dataTransfer.setData("text/plain", event.target.id);
+  };
+
+  const onDragEnd = (event) => {
+    event.target.style.opacity = "1";
+  };
+
+  setDraggableListeners(element, {
+    onDragStart,
+    onDragEnd,
+  });
+
   return {
     id,
     element,

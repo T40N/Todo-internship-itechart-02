@@ -12,11 +12,11 @@ export const toggleTodo = (id) => {
 };
 
 export const addTodo = ({ title, description, done }) => {
-  let Id = todoId++;
+  todoId += 1;
   store.dispatch({
     type: "ADD_TODO",
     payload: {
-      id: Id,
+      id: todoId,
       title,
       description,
       done,
