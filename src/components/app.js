@@ -12,27 +12,7 @@ const App = (container) => {
   const element = render("div", container, "app");
   const header = Header(element, "Your tasks for today!");
   const form = Form(element);
-  let todos = TodosContainer(element);
-
-  const updateTodos = () => {
-    unmountElem(todos.element);
-    todos = TodosContainer(element);
-  };
-
-  const updateStyle = () => {
-    const mode = todosStore.getState().mode;
-    if (mode === "lightmode") {
-      removeClass(element, "darkmode");
-    }
-    if (mode === "darkmode") {
-      removeClass(element, "lightmode");
-    }
-    addClass(element, mode);
-  };
-
-  updateStyle();
-  todosStore.subscribe(updateTodos);
-  todosStore.subscribe(updateStyle);
+  const todos = TodosContainer(element);
   return element;
 };
 

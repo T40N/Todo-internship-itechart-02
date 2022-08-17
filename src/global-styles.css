@@ -57,3 +57,19 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.darkmode {
+  --primary-100: #041955;
+  --secondary-100: #3450a1;
+  --accent-100: #237bff;
+  --accent-200: #eb06ff;
+  --font-100: #f3f5f7;
+}
+
+.lightmode {
+  --primary-100: #f3f5f7;
+  --secondary-100: #ffffff;
+  --accent-200: #237bff;
+  --accent-100: #eb06ff;
+  --font-100: #041955;
+}

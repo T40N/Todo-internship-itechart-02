@@ -1,10 +1,10 @@
-import render from "../../utilities/domManipulationsFunctions/render";
+import render from "../../utilities/render";
 import Button from "../Button/Button";
 import { todosStore } from "../../store/todoStore/todosStore";
-import addClass from "../../utilities/domManipulationsFunctions/addClass";
 const lightmode = require("../../assets/lightmode.svg");
 const darkmode = require("../../assets/darkmode.svg");
 import "./Header.css";
+
 const Header = (container, titleText) => {
   const element = render("header", container, "header");
   const changeModeHandler = () => {
@@ -18,18 +18,24 @@ const Header = (container, titleText) => {
   const modeButton = Button(element, "", changeModeHandler);
   const buttonImg = render("img", modeButton, "modeImg");
 
-  const modeChange = () => {
-    if (todosStore.getState().mode === "lightmode") {
-      buttonImg.setAttribute("src", lightmode);
-    }
-    if (todosStore.getState().mode === "darkmode") {
+  const updateStyle = () => {
+    const mode = todosStore.getState().mode;
+    const body = document.querySelector("body");
+    if (mode === "lightmode") {
+      body.classList.remove("lightmode");
       buttonImg.setAttribute("src", darkmode);
     }
+    if (mode === "darkmode") {
+      body.classList.remove("lightmode");
+      buttonImg.setAttribute("src", lightmode);
+    }
+    body.classList.add(mode);
   };
 
-  modeChange();
-  todosStore.subscribe(modeChange);
-  addClass(modeButton, "header__mode-button");
+  body.classList.add(mode);
+  buttonImg.setAttribute("src", darkmode);
+  todosStore.subscribe(updateStyle);
+  modeButton.classList.add("header__mode-button");
 
   return {
     element,
