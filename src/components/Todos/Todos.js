@@ -1,14 +1,14 @@
-import render from "../../utilities/domManipulationsFunctions/render";
+import render from "../../utilities/render";
 import "./Todos.css";
-import addClass from "../../utilities/domManipulationsFunctions/addClass";
 import drop from "./drop";
+import TodoItem from "../TodoItem/TodoItem";
+import { setDroppableListeners } from "../../utilities/setDragListeners";
 
 export let containerId = "";
 
 const Todos = (container, listOfTodos, title, className, id) => {
   const element = render("div", container, "todos");
-  //TODO: change addClass function
-  addClass(element, className);
+  element.classList.add(className);
   element.setAttribute("id", id);
   const todosTitle = render("h2", element, "todos__title");
   todosTitle.innerHTML = title;

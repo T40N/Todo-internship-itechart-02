@@ -1,27 +1,34 @@
 import render from "../../utilities/render";
 import Todos from "../Todos/Todos";
-import { todosStore } from "../../store/todoStore/todosStore";
+import { store } from "../../store/store";
 import "./TodosContainer.css";
 
 const TodosContainer = (container) => {
   const element = render("div", container, "app__todos-container");
+  let undoneTodos = null;
+  let doneTodos = null;
 
   const updateTodos = () => {
-    const undoneTodosList = todosStore.getState().todos.filter((todo) => {
+    if (undoneTodos && doneTodos) {
+      undoneTodos.element.remove();
+      doneTodos.element.remove();
+    }
+
+    const todos = store.getState().todos;
+
+    const undoneTodosList = todos.filter((todo) => {
       return todo.done === false;
     });
-    const doneTodosList = todosStore
-      .getState()
-      .todos.filter((todo) => todo.done === true);
+    const doneTodosList = todos.filter((todo) => todo.done === true);
 
-    const undoneTodos = Todos(
+    undoneTodos = Todos(
       element,
       undoneTodosList,
       "Undone",
       "app__undone-todos",
       "undone"
     );
-    const doneTodos = Todos(
+    doneTodos = Todos(
       element,
       doneTodosList,
       "Done",
@@ -32,7 +39,7 @@ const TodosContainer = (container) => {
 
   updateTodos();
 
-  todosStore.subscribe(updateTodos);
+  store.subscribe(updateTodos);
   return {
     element,
   };

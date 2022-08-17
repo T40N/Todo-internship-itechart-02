@@ -13,7 +13,6 @@ const todoReducer = (state = {}, action) => {
       if (state.id !== action.payload.id) {
         return state;
       }
-
       return {
         ...state,
         done: !state.done,

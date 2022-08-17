@@ -20,7 +20,7 @@ export const setDroppableListeners = (
   }
 
   if (onDragEnter) {
-    element.addEventListener("dragover", oonDragEnter);
+    element.addEventListener("dragover", onDragEnter);
   }
 
   if (onDragLeave) {

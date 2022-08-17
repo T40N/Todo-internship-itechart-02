@@ -1,6 +1,6 @@
-import { todosStore } from "../../store/todoStore/todosStore";
-import { containerId } from "../../utilities/dragAndDropFunctions/dragenter";
+import { store } from "../../store/store";
 import { addTodo, toggleTodo } from "../../store/actions";
+import { containerId } from "./Todos";
 
 const drop = (event) => {
   event.stopPropagation();
@@ -13,11 +13,11 @@ const drop = (event) => {
     copyKeyPressed = true;
   }
 
-  if (checkIfShouldDrop(todoToDrop, containerId)) {
+  if (checkIfShouldDrop(done, containerId)) {
     if (copyKeyPressed) {
-      let toggleDone = done;
+      let toggleDone = !done;
 
-      addTodo({ title, description, toggleDone });
+      addTodo({ title, description, done: toggleDone });
       return;
     }
     toggleTodo(id);
@@ -30,15 +30,15 @@ const drop = (event) => {
   }
 };
 
-const checkIfShouldDrop = (todoToDrop, containerId) => {
+const checkIfShouldDrop = (done, containerId) => {
   return (
-    (todoToDrop.done === false && containerId === "done") ||
-    (todoToDrop.done === true && containerId === "undone")
+    (done === false && containerId === "done") ||
+    (done === true && containerId === "undone")
   );
 };
 
 const getTodoToDrop = (elementID) => {
-  return todosStore.getState().todos.find((todo) => todo.id === elementID);
+  return store.getState().todos.find((todo) => todo.id !== elementID);
 };
 
 export default drop;

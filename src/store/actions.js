@@ -1,4 +1,4 @@
-import store from "./store";
+import { store } from "./store";
 
 let todoId = 0;
 
@@ -6,8 +6,14 @@ export const toggleTodo = (id) => {
   store.dispatch({
     type: "TOGGLE_TODO",
     payload: {
-      id: id,
+      id: +id,
     },
+  });
+};
+
+export const toggleMode = () => {
+  store.dispatch({
+    type: "TOGGLE_MODE",
   });
 };
 

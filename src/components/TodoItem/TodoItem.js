@@ -1,8 +1,7 @@
-import render from "../../utilities/domManipulationsFunctions/render";
+import render from "../../utilities/render";
 import Button from "../Button/Button";
 import "./TodoItem.css";
-import { todosStore } from "../../store/todoStore/todosStore";
-import addClass from "../../utilities/domManipulationsFunctions.js/addClass";
+import { removeTodo } from "../../store/actions";
 import { setDraggableListeners } from "../../utilities/setDragListeners";
 
 const TodoItem = (container, todoTitle, todoDescription, todoId) => {
@@ -19,12 +18,7 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   const buttonContainer = render("div", element, "todo-item__button-container");
 
   const onDeleteHandler = () => {
-    todosStore.dispatch({
-      type: "todosReducer/REMOVE_TODO",
-      payload: {
-        id: id,
-      },
-    });
+    removeTodo(id);
   };
 
   const title = render("h1", descriptionContainer, "todo-item__title");
@@ -38,7 +32,7 @@ const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   description.innerHTML = todoDescription;
 
   const deleteButton = Button(buttonContainer, "-", onDeleteHandler);
-  addClass(deleteButton, "todo-item__delete-button");
+  deleteButton.classList.add("todo-item__delete-button");
 
   const onDragStart = (event) => {
     event.target.style.opacity = "0.4";

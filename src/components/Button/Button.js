@@ -1,10 +1,9 @@
-import render from "../../utilities/domManipulationsFunctions/render";
-import addEventListener from "../../utilities/domManipulationsFunctions/addEventListener";
+import render from "../../utilities/render";
 import "./Button.css";
 const Button = (container, buttonText, eventCallback) => {
   const element = render("button", container, "button");
   element.innerHTML = buttonText;
-  addEventListener(element, "click", eventCallback);
+  element.addEventListener("click", (event) => eventCallback(event));
   return element;
 };
 

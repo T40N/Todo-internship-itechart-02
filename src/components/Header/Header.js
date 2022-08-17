@@ -1,16 +1,18 @@
 import render from "../../utilities/render";
 import Button from "../Button/Button";
-import { todosStore } from "../../store/todoStore/todosStore";
+import { store } from "../../store/store";
 const lightmode = require("../../assets/lightmode.svg");
 const darkmode = require("../../assets/darkmode.svg");
 import "./Header.css";
+import { toggleMode } from "../../store/actions";
 
 const Header = (container, titleText) => {
   const element = render("header", container, "header");
+  const body = document.querySelector("body");
+  const mode = store.getState().mode;
+
   const changeModeHandler = () => {
-    todosStore.dispatch({
-      type: "themeReducer/TOGGLE_MODE",
-    });
+    toggleMode();
   };
 
   const headerTitle = render("h1", element, "header__title");
@@ -19,8 +21,6 @@ const Header = (container, titleText) => {
   const buttonImg = render("img", modeButton, "modeImg");
 
   const updateStyle = () => {
-    const mode = todosStore.getState().mode;
-    const body = document.querySelector("body");
     if (mode === "lightmode") {
       body.classList.remove("lightmode");
       buttonImg.setAttribute("src", darkmode);
@@ -34,7 +34,7 @@ const Header = (container, titleText) => {
 
   body.classList.add(mode);
   buttonImg.setAttribute("src", darkmode);
-  todosStore.subscribe(updateStyle);
+  store.subscribe(updateStyle);
   modeButton.classList.add("header__mode-button");
 
   return {

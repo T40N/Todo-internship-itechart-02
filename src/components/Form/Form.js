@@ -1,9 +1,8 @@
-import addEventListener from "../../utilities/domManipulationsFunctions/addEventListener";
-import render from "../../utilities/domManipulationsFunctions/render";
+import render from "../../utilities/render";
 import Input from "../Input/Input";
-import { addTodoId, todosStore } from "../../store/todoStore/todosStore";
 import Button from "../Button/Button";
 import "./Form.css";
+import { addTodo } from "../../store/actions";
 
 const Form = (container) => {
   let titleInputValue = "";
@@ -30,14 +29,10 @@ const Form = (container) => {
       return;
     }
 
-    todosStore.dispatch({
-      type: "todosReducer/ADD_TODO",
-      payload: {
-        id: addTodoId(),
-        title: titleInputValue,
-        description: descriptionInputValue,
-        done: false,
-      },
+    addTodo({
+      title: titleInputValue,
+      description: descriptionInputValue,
+      done: false,
     });
 
     errorText.innerHTML = "";
@@ -61,7 +56,7 @@ const Form = (container) => {
   );
   const submitButton = Button(element, "+", onSubmitHandler);
 
-  addEventListener(element, "submit", onSubmitHandler);
+  element.addEventListener("submit", (event) => onSubmitHandler(event));
 
   return {
     element,

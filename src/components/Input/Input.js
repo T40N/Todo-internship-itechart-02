@@ -1,5 +1,4 @@
-import addEventListener from "../../utilities/domManipulationsFunctions/addEventListener";
-import render from "../../utilities/domManipulationsFunctions/render";
+import render from "../../utilities/render";
 import "./input.css";
 
 const Input = (container, eventCallback, placeholder) => {
@@ -10,7 +9,9 @@ const Input = (container, eventCallback, placeholder) => {
   const element = render("input", inputContainer, "input");
   element.setAttribute("placeholder", placeholder);
   element.setAttribute("name", placeholder);
-  addEventListener(element, "input", eventCallback);
+
+  element.addEventListener("input", (event) => eventCallback(event));
+
   return {
     label,
     element,
