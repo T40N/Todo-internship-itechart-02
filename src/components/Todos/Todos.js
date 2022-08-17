@@ -1,6 +1,5 @@
 import render from "../../utilities/domManipulationsFunctions/render";
 import addDragTargetListeners from "../../utilities/dragAndDropListeners/addDragTargetListeners";
-import renderTodos from "../../utilities/domManipulationsFunctions/renderTodos";
 import "./Todos.css";
 import addClass from "../../utilities/domManipulationsFunctions/addClass";
 
@@ -18,6 +17,12 @@ const Todos = (container, listOfTodos, title, className, id) => {
     element,
     todos,
   };
+};
+
+const renderTodos = (container, listOfTodos) => {
+  return listOfTodos.map((todo) => {
+    return TodoItem(container, todo.title, todo.description, todo.id);
+  });
 };
 
 export default Todos;
