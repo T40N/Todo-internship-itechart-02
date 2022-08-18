@@ -1,5 +1,5 @@
-import render from "../../utilities/render";
-import Todos from "../Todos/Todos";
+import { render } from "../../utilities";
+import Todos from "../Todos";
 import { store } from "../../store/store";
 import "./TodosContainer.css";
 

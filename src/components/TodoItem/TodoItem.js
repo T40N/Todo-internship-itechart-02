@@ -1,8 +1,8 @@
-import render from "../../utilities/render";
-import Button from "../Button/Button";
+import { render } from "../../utilities";
+import Button from "../Button";
 import "./TodoItem.css";
 import { removeTodo } from "../../store/actions";
-import { setDraggableListeners } from "../../utilities/setDragListeners";
+import { setDraggableListeners } from "../../utilities";
 
 const TodoItem = (container, todoTitle, todoDescription, todoId) => {
   let id = todoId;

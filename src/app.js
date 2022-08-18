@@ -1,7 +1,5 @@
-import render from "../utilities/render";
-import Form from "./Form/Form";
-import TodosContainer from "./TodosContainer/TodosContainer";
-import Header from "./Header/Header";
+import { render } from "./utilities";
+import { Header, TodosContainer, Form } from "./components";
 import "./app.css";
 
 const App = (container) => {

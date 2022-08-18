@@ -1,5 +1,5 @@
-import render from "../../utilities/render";
-import Button from "../Button/Button";
+import { render } from "../../utilities";
+import Button from "../Button";
 import { store } from "../../store/store";
 const lightmode = require("../../assets/lightmode.svg");
 const darkmode = require("../../assets/darkmode.svg");

@@ -1,4 +1,4 @@
-import render from "../../utilities/render";
+import { render } from "../../utilities";
 import "./input.css";
 
 const Input = (container, eventCallback, placeholder) => {

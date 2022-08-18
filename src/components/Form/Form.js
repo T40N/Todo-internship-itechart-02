@@ -1,6 +1,6 @@
-import render from "../../utilities/render";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
+import { render } from "../../utilities";
+import Button from "../Button";
+import Input from "../Input";
 import "./Form.css";
 import { addTodo } from "../../store/actions";
 

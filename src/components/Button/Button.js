@@ -1,4 +1,4 @@
-import render from "../../utilities/render";
+import { render } from "../../utilities";
 import "./Button.css";
 const Button = (container, buttonText, eventCallback) => {
   const element = render("button", container, "button");

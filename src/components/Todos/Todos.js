@@ -1,8 +1,8 @@
-import render from "../../utilities/render";
+import { render } from "../../utilities";
+import TodoItem from "../TodoItem";
 import "./Todos.css";
 import drop from "./drop";
-import TodoItem from "../TodoItem/TodoItem";
-import { setDroppableListeners } from "../../utilities/setDragListeners";
+import { setDroppableListeners } from "../../utilities";
 
 export let containerId = "";
 
